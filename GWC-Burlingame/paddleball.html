@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html>
+
+	<head>
+	  <script src = "processing.min.js"></script>
+	  <script type = "application/processing" data-processing-target = "demoscreen">
+	  var xPos = 55;
+	  var yPos = 80;
+	  var rectYPos = 500;
+	  var changeInX = 5;
+	  var changeInY = 7;
+	  
+	  void draw(){
+	  	
+	  	size(600,600);
+
+	  	background(0,0,100);
+	  	rect(mouseX,500,70,20);
+
+
+	  	ellipse(xPos, yPos, 40, 40);
+	  	xPos = xPos + changeInX;
+    	yPos = yPos + changeInY;
+
+
+	  	if(xPos <= 0 || xPos >= 600)
+	    	{
+	    		changeInX = -changeInX;
+
+	    	}
+	    
+	    
+
+
+	    if(yPos <= 0)
+	    {
+	      changeInY = -changeInY;
+	    }
+	    if(yPos >= 600 ){
+	    	text("GAME OVER ", 15, 20, 70, 70);
+	    	
+
+		  }
+		  if(yPos>= 500 && (xPos >mouseX && xPos<mouseX+70)){
+	    	changeInY = -changeInY;
+	    }
+
+	    }
+	  </script>
+
+	</head>
+
+	<body>
+		<canvas id= "demoscreen"></canvas>
+
+	</body> 
+
+</html>
